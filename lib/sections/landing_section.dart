@@ -25,7 +25,8 @@ class LandingSection extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 4),
       child: TextButton.icon(
         style: TextButton.styleFrom(
-          backgroundColor: bgColor ?? Theme.of(context).colorScheme.secondary.withOpacity(0.12),
+          backgroundColor:
+              bgColor ?? Theme.of(context).colorScheme.secondary.withOpacity(0.12),
           foregroundColor: textColor ?? Theme.of(context).primaryColor,
           minimumSize: const Size(30, 36),
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
@@ -81,10 +82,11 @@ class LandingSection extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 28),
+
+          // Contact buttons
           Wrap(
             spacing: 8,
             children: [
-
               contactButton(
                 context: context,
                 label: "Email",
@@ -110,6 +112,29 @@ class LandingSection extends StatelessWidget {
                 textColor: Colors.blue.shade800,
               ),
             ],
+          ),
+
+          const SizedBox(height: 20),
+
+          // Download CV Button
+          SizedBox(
+            width: 260, // full width across the above buttons row
+            child: ElevatedButton.icon(
+              onPressed: () => _launch('assets/HarshitGyanchandani_Resume.pdf'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).primaryColor,
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              icon: const Icon(Icons.download),
+              label: const Text(
+                "Download My CV",
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+              ),
+            ),
           ),
         ],
       ),
