@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import '../widgets/section_title.dart';
 import '../widgets/animated_card.dart';
-import '../widgets/flip_card.dart';
+import '../widgets/responsive_flip_card.dart'; // <-- use our new widget here
 
 class ExperienceSection extends StatelessWidget {
   const ExperienceSection({super.key});
 
   Widget tealBack(BuildContext context) {
     return Container(
-      height: 240, // match FlipCard height
+      height: 240, // match card height
       decoration: BoxDecoration(
         color: Theme.of(context).primaryColor,
         borderRadius: BorderRadius.circular(14),
@@ -60,21 +60,20 @@ class ExperienceSection extends StatelessWidget {
         children: [
           const SectionTitle(title: "Experience"),
           const SizedBox(height: 20),
-          FlipCard(
-            width: 500,
-            height: 240,
+
+          ResponsiveFlipCard( // <-- swapped from FlipCard
             front: AnimatedCard(
               width: 500,
               child: Container(
-                height: 240, // match FlipCard height
+                height: 240, // match card height
                 padding: const EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
                     Text(
                       "Mobile App Dev Apprentice — Project Recycle-it",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 18),
                     ),
                     SizedBox(height: 10),
                     Text(

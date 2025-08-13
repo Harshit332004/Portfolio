@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/section_title.dart';
 import '../widgets/animated_card.dart';
-import '../widgets/flip_card.dart';
+import '../widgets/responsive_flip_card.dart'; // <-- changed from flip_card.dart
 
 class CertificationsSection extends StatelessWidget {
   const CertificationsSection({super.key});
@@ -16,7 +16,10 @@ class CertificationsSection extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       child: Text(
         "Certification:\n$title",
-        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        style: const TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+        ),
         textAlign: TextAlign.center,
       ),
     );
@@ -43,9 +46,7 @@ class CertificationsSection extends StatelessWidget {
             spacing: 20,
             runSpacing: 20,
             children: certifications.map((cert) {
-              return FlipCard(
-                width: 400,
-                height: 140,
+              return ResponsiveFlipCard( // <-- changed from FlipCard
                 front: AnimatedCard(
                   width: 400,
                   child: ListTile(

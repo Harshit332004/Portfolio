@@ -17,6 +17,7 @@ dependencies:
   shared_preferences_web: ^2.4.3
   shared_preferences: ^2.5.3
   url_launcher: ^6.3.2
+  flip_card: ^0.7.0
 
 dev_dependencies:
   flutter_test:

@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../widgets/section_title.dart';
 import '../widgets/animated_card.dart';
-import '../widgets/flip_card.dart';
+import '../widgets/responsive_flip_card.dart'; // <-- new import
 
 class ProjectsSection extends StatelessWidget {
   const ProjectsSection({super.key});
 
+  // Back side design
   Widget tealBack(BuildContext context, Map<String, dynamic> project) {
     return Container(
-      height: 280, // match FlipCard height
+      height: 280, // match ResponsiveFlipCard height
       decoration: BoxDecoration(
         color: Theme.of(context).primaryColor,
         borderRadius: BorderRadius.circular(14),
@@ -74,8 +75,10 @@ class ProjectsSection extends StatelessWidget {
                       }
                     },
                     icon: const Icon(Icons.code, size: 16),
-                    label: const Text("View on GitHub",
-                        style: TextStyle(fontSize: 12)),
+                    label: const Text(
+                      "View on GitHub",
+                      style: TextStyle(fontSize: 12),
+                    ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
                       foregroundColor: Theme.of(context).primaryColor,
@@ -91,6 +94,7 @@ class ProjectsSection extends StatelessWidget {
     );
   }
 
+  // PROJECTS DATA
   final List<Map<String, dynamic>> projects = const [
     {
       "name": "Cryptozz",
@@ -162,13 +166,11 @@ class ProjectsSection extends StatelessWidget {
             children: projects.map((project) {
               return Tooltip(
                 message: "Click to see more details about ${project['name']}",
-                child: FlipCard(
-                  width: 320,
-                  height: 280,
+                child: ResponsiveFlipCard( // ⬅ swapped from FlipCard
                   front: AnimatedCard(
                     width: 320,
                     child: Container(
-                      height: 280, // match FlipCard height
+                      height: 280, // match ResponsiveFlipCard height
                       padding: const EdgeInsets.all(16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
